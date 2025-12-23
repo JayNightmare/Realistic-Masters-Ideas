@@ -1,3 +1,3 @@
-# Idea #1 Project Branch
+# Idea #2 Project Branch
 
-This branch will have the codebase for idea #1.
+This branch will have the codebase for idea #2.
