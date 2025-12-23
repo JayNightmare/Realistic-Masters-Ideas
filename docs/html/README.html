@@ -51,28 +51,30 @@
 <p>EEG-informed gating for responsible LLM assistance in academic work</p>
 </blockquote>
 <p>&lt;/div&gt;</p>
-<p><strong>Brief:</strong></p>
+<h4><strong>Brief:</strong></h4>
 <p>Gating system which only unlocks the LLM once the user has shown pre-commitment to thinking via:</p>
 <ol>
 <li>Behavioural Evidence
 <ul>
-<li>Did they write enough?</li>
-<li>Did they outline enough?</li>
+<li>Have they drafted enough original content?</li>
+<li>Have they created an outline/plan?</li>
+<li>Time-on-task + revision activity</li>
 </ul>
 </li>
 <li>Neurophysiological Evidence
 <ul>
-<li>Features consistent activity with Idea Generation and Engagement</li>
+<li>EEG-derived proxies for engagement / cognitive effort during drafting</li>
+<li>Personalised thresholds from a short calibration phase</li>
 </ul>
 </li>
 </ol>
-<p><strong>Aim:</strong></p>
+<h4><strong>Aim:</strong></h4>
 <p>Encourage authentic ideation before the use of LLM by unlocking AI support only after measurable engagement signals</p>
-<p><strong>Deliverables:</strong></p>
+<h4><strong>Deliverables:</strong></h4>
 <p>A desktop/browser middleware that controls LLM access + a small study comparing gated vs ungated use on originality and retention</p>
-<p><strong>Novelty:</strong></p>
+<h4><strong>Novelty:</strong></h4>
 <p>Real-time neuroadaptive &quot;cognitive warm start&quot; for AI assistance</p>
-<p><strong>Research Questions:</strong></p>
+<h4><strong>Research Questions:</strong></h4>
 <p>Main:</p>
 <ul>
 <li>Does EEG + Behavioural gating increase original contribution and learning/retention compared to ungated LLM access?</li>
@@ -85,8 +87,14 @@
 <ul>
 <li>Does gating harm user experience, or does it feel like a helpful &quot;coach&quot;?</li>
 </ul>
+<h4><strong>Scope / Assumptions:</strong></h4>
+<ul>
+<li>EEG is treated as a noisy but useful signal</li>
+<li>System supports behaviour-only gating as a fallback</li>
+<li>Gating targets academic pipeline workflows</li>
+</ul>
 <hr>
-<p>References:</p>
+<h4>References:</h4>
 <ul>
 <li>Your Brain on ChatGPT: Accumulation of Cognitive Debt when Using an AI Assistant for Essay Writing Task
 <ul>
@@ -98,6 +106,65 @@
 </ul>
 <hr>
 <h2>Idea #2</h2>
+<p>&lt;div align=&quot;center&quot;&gt;</p>
+<h3><strong>EEG-Guided Image Search / Target Detection</strong></h3>
+<p>&lt;/div&gt;</p>
+<h4><strong>Brief:</strong></h4>
+<p>A “brain-in-the-loop” visual search system that uses EEG signals during Rapid Serial Visual Presentation (RSVP) to detect when a user recognizes a target image (e.g., via P300 / ERP target responses) and then re-ranks / flags likely targets for faster triage (security footage, medical screening queues, content moderation, satellite imagery).</p>
+<h4><strong>Aim:</strong></h4>
+<p>Reduce time-to-find and missed targets in large image collections by using EEG-derived target-recognition signals as an additional implicit feedback channel (alongside clicks/labels).</p>
+<h4><strong>Deliverables:</strong></h4>
+<ul>
+<li>RSVP image-stream UI (desktop/web prototype) with configurable target types</li>
+<li>Real-time EEG pipeline (stream → preprocess → feature extraction → classifier)</li>
+<li>“Triage mode” output: ranked shortlist + confidence + review interface</li>
+<li>Pilot evaluation: EEG-guided triage vs mouse-only/manual tagging (speed + accuracy + workload)</li>
+</ul>
+<h4><strong>Novelty:</strong></h4>
+<p>Implicit neural feedback for image search: the user can “recognize” a target without explicitly clicking it, enabling faster screening and potentially catching targets users miss behaviourally.</p>
+<h4><strong>Research Questions:</strong></h4>
+<p>Main:</p>
+<ul>
+<li>Does EEG-guided triage (EEG + RSVP) improve target-finding performance (time, recall, false positives) compared to standard manual review?</li>
+</ul>
+<p>Mechanism:</p>
+<ul>
+<li>Can we reliably detect target-recognition responses (e.g., P300/ERP signatures) in single-trial or low-trial settings using consumer/lab EEG, and generalise across sessions and users?</li>
+</ul>
+<p>UX:</p>
+<ul>
+<li>Does RSVP + EEG triage reduce mental workload overall, or does it increase fatigue/annoyance compared to traditional search workflows?</li>
+</ul>
+<h4><strong>Scope / Assumptions:</strong></h4>
+<ul>
+<li>EEG is treated as a noisy but useful signal; the system degrades gracefully to behaviour-only ranking if EEG quality drops.</li>
+<li>Initial prototype focuses on binary target detection (target vs non-target) in constrained domains (e.g., “find a knife”, “find a tumour-like patch”, “find a red car”).</li>
+<li>RSVP speed and session length must be tuned to avoid excessive fatigue; short sessions + breaks are part of the design.</li>
+<li>Evaluation prioritises measurable outcomes (speed/recall/workload) rather than claiming “mind reading” or true semantic understanding.</li>
+</ul>
+<h4>References:</h4>
+<ul>
+<li><strong>EEG Dataset for RSVP and P300 Speller Brain-Computer Interfaces</strong> (Scientific Data, 2022) — includes RSVP target detection data and benchmarks
+<ul>
+<li>https://www.nature.com/articles/s41597-022-01509-w</li>
+</ul>
+</li>
+<li><strong>Brain activity-based image classification from rapid serial visual presentation</strong> (UCSD, 2008) — early RSVP/EEG target-detection work; shows neural detection can occur even when behavioural detection fails
+<ul>
+<li>https://sccn.ucsd.edu/~nima/downloads/brain_activity_based_image_classification.pdf</li>
+</ul>
+</li>
+<li><strong>Multirapid / Triple-RSVP paradigms for EEG-based image retrieval</strong> (e.g., Lin et al., 2017) — multi-image RSVP variants aimed at improving retrieval performance
+<ul>
+<li>https://pmc.ncbi.nlm.nih.gov/articles/PMC5541818/</li>
+</ul>
+</li>
+<li><strong>An EEG Image-search Dataset: A First-of-its-kind in IR/IIR</strong> (Healy et al.) — dataset framing EEG signals as implicit feedback for image search
+<ul>
+<li>https://core.ac.uk/download/pdf/147610007.pdf</li>
+</ul>
+</li>
+</ul>
 
         </main>
     </div>
